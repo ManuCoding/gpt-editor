@@ -1,0 +1,72 @@
+body {
+	font-family: monospace;
+	margin: 0;
+}
+#editor-container {
+	position: relative;
+	height: 500px;
+}
+#editor, #code-display {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	font-size: 16px;
+	padding: 0;
+	padding-left: 4em;
+}
+#editor {
+	border: none;
+	outline: none;
+	opacity: 0;
+	white-space: pre-wrap;
+	line-height: 1.2em;
+}
+#code-display {
+	white-space: pre-wrap;
+	color: #eee;
+	counter-set: line;
+}
+.cursor {
+	position: absolute;
+	pointer-events: none;
+	background-color: #ccc;
+	width: 2px;
+	height: 1.2em;
+	animation: cursor-blink 1s linear infinite;
+}
+.editor-line {
+	position: relative;
+	height: 1.2em;
+	counter-increment: line;
+}
+.editor-line::before {
+	position: absolute;
+	color: #bbb;
+	content: counter(line);
+	pointer-events: none;
+	left: -4em;
+	width: 4em;
+	text-align: right;
+	box-sizing: border-box;
+	padding-right: 0.55em;
+}
+@keyframes cursor-blink {
+	0%, 100% { opacity: 0; }
+	50% { opacity: 1; }
+}
+
+/* little theme */
+#editor-container {
+	background-color: #222;
+}
+.op, .kw-1 { color: #f4a; }
+.kw-2 { color: #0ff; font-style: italic; }
+.arg { color: #fa0; font-style: italic; }
+.def { color: #af4; }
+.str { color: #fd4; }
+.num { color: #a0f; }
+.var { color: #0ff; font-style: italic; }
+.call { color: #0ff; }
+.punc, .bracket { color: #aaa; }
