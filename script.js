@@ -126,7 +126,6 @@ function updateCodeDisplay() {
 	codeDisplay.appendChild(cursorElement);
 }
 
-
 function highlight(code) {
 	return code
 		.replace(/&/g,"&amp;")
